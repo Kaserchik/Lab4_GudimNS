@@ -9,17 +9,17 @@ namespace DBWork
 {
     internal class DataBase
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data source=DESKTOP-CMK6F4H\SQLEXPRESS;Initial Catalog=PikabuParse;Integrated Security=true");
+        readonly SqlConnection sqlConnection = new SqlConnection(@"Data source=MY-DESKTOP-PC\SQLEXPRESS;Initial Catalog=PikabuParse;Integrated Security=true");
 
-        public void openConnection()
+        public void OpenConnection()
         {
             sqlConnection.Open();
         }
-        public void closeConnection()
+        public void CloseConnection()
         {
             sqlConnection.Close();
         }
-        public SqlConnection getConnection()
+        public SqlConnection GetConnection()
         {
             return sqlConnection;
         }

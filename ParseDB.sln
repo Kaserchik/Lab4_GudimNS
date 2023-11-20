@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBWork", "DBWork\DBWork.csproj", "{FE6AEE3B-5B78-4942-BEF1-4FD1241F84A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDTest", "BDTest\BDTest.csproj", "{D1097199-A702-4B61-8F6C-C8F7D3165270}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDTest", "BDTest\BDTest.csproj", "{D1097199-A702-4B61-8F6C-C8F7D3165270}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PikabuParser", "PikabuParser\PikabuParser.csproj", "{E402829B-D270-4501-892E-7C9E91C59AD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D1097199-A702-4B61-8F6C-C8F7D3165270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1097199-A702-4B61-8F6C-C8F7D3165270}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1097199-A702-4B61-8F6C-C8F7D3165270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E402829B-D270-4501-892E-7C9E91C59AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E402829B-D270-4501-892E-7C9E91C59AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E402829B-D270-4501-892E-7C9E91C59AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E402829B-D270-4501-892E-7C9E91C59AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
