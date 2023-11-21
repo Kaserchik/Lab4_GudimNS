@@ -109,7 +109,7 @@ namespace BDTest
         {
             // Arrange
             Class1 class1 = new();
-            int id = -1; // Замените на значение, которое гарантированно не существует в вашей базе данных
+            int id = -1;
             string updatedMessage = "UpdatedMessage";
 
             // Act
@@ -117,7 +117,6 @@ namespace BDTest
             class1.Update(id, updatedMessage);
 
             // Assert
-            // Добавьте код проверки, что запись с несуществующим ID не была обновлена
             Assert.IsFalse(class1.IsRecordExists(id, "AnyName", updatedMessage), "Record with nonexistent ID should not be updated");
         }
         [TestMethod]

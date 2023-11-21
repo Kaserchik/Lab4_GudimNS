@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using DBWork;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System.Threading;
 
 namespace PikabuParser
 {
@@ -13,57 +16,17 @@ namespace PikabuParser
     {
         static void Main()
         {
-            var web = new HtmlWeb();
-            Console.WriteLine();
-            string url = Console.ReadLine();
-            var doc = web.Load(url);
-            List<CommentInfo> comments = ExtractCommentsInfo(url);
-
-        }
-
-        static List<CommentInfo> ExtractCommentsInfo(string url)
-        {
-            List<CommentInfo> comments = new List<CommentInfo>();
-
-            var web = new HtmlWeb();
-            var doc = web.Load(url);
-
-            // Используем XPath для выбора элементов комментариев
-            var commentNodes = doc.DocumentNode.SelectNodes("//div[@class='comments__item']");
-
-            if (commentNodes != null)
+            IWebDriver driver = new ChromeDriver();
+            driver.Url = "https://www.playground.ru/misc/opinion/top_25_anime_o_gejmerah_i_dlya_gejmerov_hudshee_luchshee_i_alternativy_chast_1-1662933";
+            IList<IWebElement> names = driver.FindElements(By.ClassName("comments-item-author"));
+            IList<IWebElement> texts = driver.FindElements(By.ClassName("comments-item-content"));
+            IList<IWebElement> tboxes = driver.FindElements(By.ClassName("comments-item"));
+            List<string> ids = new List<string>();
+            foreach (IWebElement element in tboxes)
             {
-                foreach (var commentNode in commentNodes)
-                {
-                    // Извлечение информации о комментарии
-                    string id = commentNode.GetAttributeValue("data-comment-id", "");
-                    string username = commentNode.SelectSingleNode(".//span[@class='user__nick']/a")?.InnerText ?? "";
-                    string content = commentNode.SelectSingleNode(".//div[@class='comment__content']")?.InnerText.Trim() ?? "";
-
-                    // Добавление информации о комментарии в список
-                    comments.Add(new CommentInfo
-                    {
-                        Id = id,
-                        Username = username,
-                        Content = content
-                    });
-                }
+                ids.Add(element.GetAttribute("data-comment-id").ToString());
             }
-
-            return comments;
-        }
-
-        static void SaveToDatabase(List<CommentInfo> comments)
-        {
-            
-        }
-
-
-        class CommentInfo
-        {
-            public string Id { get; set; }
-            public string Username { get; set; }
-            public string Content { get; set; }
+            Console.WriteLine(names[0].Text);
         }
     }
 }
